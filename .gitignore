@@ -1,0 +1,21 @@
+# Data en modellen (te groot voor git)
+data/
+*.pt
+*.pth
+*.h5
+*.pkl
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Secrets
+.env
