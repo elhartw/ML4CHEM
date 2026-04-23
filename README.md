@@ -18,7 +18,7 @@ using the BBBP dataset from MoleculeNet.
 3. Activate it: `source .venv/bin/activate` on Mac/Linux, or `.venv\Scripts\activate` on Windows
 4. Install packages: `pip install -r requirements.txt`
 5. Download `BBBP.csv` from [MoleculeNet](https://moleculenet.org/datasets-1) and put it in `data/`
-6. Open `notebooks/01_eda.ipynb` to get started
+6. Open `notebooks_EDA/01_eda.ipynb` to get started
 
 ## Working together
 
