@@ -17,7 +17,7 @@ The central question: can a pre-trained chemical language model outperform a CNN
 
 - **Exploratory data analysis** — [`notebooks_EDA/01_eda.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/notebooks_EDA/01_eda.ipynb)
 - **CNN from scratch** — [`CNN_BBBP.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/CNN_BBBP.ipynb)
-- **ChemBERTa fine-tuning** — [`chemberta_bbbp_improved.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/chemberta_bbbp_improved.ipynb)
+- **ChemBERTa fine-tuning** — [`chemberta_bbbp_improved_fixed.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/chemberta_bbbp_improved.ipynb)
 
 ## Dataset
 
