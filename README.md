@@ -1,26 +1,24 @@
-# ML4CHEM
+# ML4CHEM — Predicting Blood-Brain Barrier Penetration
 
-Group project for the Machine Learning for Chemistry course.
-We predict whether a molecule can cross the blood-brain barrier,
-using the BBBP dataset from MoleculeNet.
+Group project for the *Machine Learning for Chemistry* course, inspired by the work of Hirohara et al.
 
-## What's in this repo
+## Project
 
-- `notebooks/` — Jupyter notebooks for data exploration and experiments.
-- `src/` — Python files with reusable code (CNN model, data loading, training).
-- `data/` — Where `BBBP.csv` goes. Not on GitHub, download it yourself.
-- `results/` — Plots and trained models.
+We work with the **BBBP (Blood-Brain Barrier Penetration)** dataset: about 2,000 small molecules, each labeled with a binary indicator for whether the compound can cross the blood-brain barrier. The goal is to predict this property directly from the molecule's SMILES string.
 
-## How to get started
+We approach the task in two ways and compare them:
 
-1. Clone the repo: `git clone https://github.com/elhartw/ML4CHEM.git` and `cd ML4CHEM`
-2. Create a virtual environment (a separate Python setup just for this project): `python -m venv .venv`
-3. Activate it: `source .venv/bin/activate` on Mac/Linux, or `.venv\Scripts\activate` on Windows
-4. Install packages: `pip install -r requirements.txt`
-5. Download `BBBP.csv` from [MoleculeNet](https://moleculenet.org/datasets-1) and put it in `data/`
-6. Open `notebooks_EDA/01_eda.ipynb` to get started
+1. A **convolutional neural network (CNN)** trained from scratch, operating on character-level SMILES.
+2. **ChemBERTa-77M-MTR**, a transformer pre-trained on 77M molecules from PubChem, fine-tuned for BBBP classification.
 
-## Working together
+The central question: can a pre-trained chemical language model outperform a CNN trained from scratch on a small dataset like BBBP?
 
-Run `git pull` before you start, and `git push` when you're done.
-Avoid working on the same file at the same time.
+## Notebooks
+
+- **Exploratory data analysis** — [`notebooks_EDA/01_eda.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/notebooks_EDA/01_eda.ipynb)
+- **CNN from scratch** — [`CNN_BBBP.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/CNN_BBBP.ipynb)
+- **ChemBERTa fine-tuning** — [`chemberta_bbbp_improved.ipynb`](https://github.com/elhartw/ML4CHEM/blob/main/chemberta_bbbp_improved.ipynb)
+
+## Dataset
+
+BBBP is part of the [MoleculeNet](https://moleculenet.org/) benchmark suite and is publicly available via DeepChem. Each molecule has a SMILES string and a binary label `p_np` (1 = penetrates, 0 = does not). The class distribution is imbalanced (~76% positive), which we address through scaffold-based splitting and class-weighted loss.
